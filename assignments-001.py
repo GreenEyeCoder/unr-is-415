@@ -49,15 +49,15 @@ from random import randint
 #Generate list of 20 random variables
 my_loop = 20
 
-"""
-rv = [] # empty list rv stands for random variables
+
+rv1 = [] # empty list rv stands for random variables
 for i in range(my_loop):
         ranNum = randint(1,100)
-        rv.append(ranNum)
-print(rv)
-"""
+        rv1.append(ranNum)
+print("My random numbers           :",'{:04d}'.format(rv1))
 
-print("Random numbers from Chat-GPT:",random_numbers)
+
+print("Random numbers from Chat-GPT:",'{:04d}'.format(random_numbers))
 
 rv = random_numbers
 
