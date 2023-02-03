@@ -40,12 +40,33 @@ print("Remaining numbers:", remaining)
 """
 
 
-# my attempt
+# my attempt at this assignment
+
 
 from random import randint
 
+#Generate list of 20 random variables
 my_loop = 20
 
+rv = [] # empty list rv stands for random variables
 for i in range(my_loop):
-	ranNum = randint(1,100)
-	print(ranNum)
+        ranNum = randint(1,100)
+        rv.append(ranNum)
+print(rv)
+
+#multiples
+for i in [2,3,6]:
+        m = [] # empty list, m stands for multiples
+        for j in range(my_loop):
+                if rv[j] % i == 0:
+                        if i != 6:
+                                if rv[j] % 6 !=0:
+                                        m.append(rv[j])
+                        else:
+                                m.append(rv[j])
+                                        
+        print(m)
+
+
+
+        
