@@ -11,6 +11,7 @@ inbuilt sorting functions
 
 response from chat-gpt
 
+"""
 
 import random
 
@@ -37,7 +38,6 @@ print("Multiples of 3:", multiples_3)
 print("Multiples of 6:", multiples_6)
 print("Remaining numbers:", remaining)
 
-"""
 
 
 # my attempt at this assignment
@@ -45,14 +45,22 @@ print("Remaining numbers:", remaining)
 
 from random import randint
 
+
 #Generate list of 20 random variables
 my_loop = 20
 
+"""
 rv = [] # empty list rv stands for random variables
 for i in range(my_loop):
         ranNum = randint(1,100)
         rv.append(ranNum)
 print(rv)
+"""
+
+print("Random numbers from Chat-GPT:",random_numbers)
+
+rv = random_numbers
+
 
 #multiples
 for i in [2,3,6]:
@@ -64,8 +72,8 @@ for i in [2,3,6]:
                                         m.append(rv[j])
                         else:
                                 m.append(rv[j])
-                                        
-        print(m)
+        m.sort()                   
+        print(f"Muliples of {i}",m)
 
 
 
