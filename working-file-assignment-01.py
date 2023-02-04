@@ -48,23 +48,13 @@ listOfRandomNumbers=[] # empty list
 duplicates = [] # empty list
 
 for i in range(20):
-	pickNumber = random.randint(1, 100)
-	while (pickNumber in listOfRandomNumbers):
-		pickNumber = random.randint(1, 100)
-		duplicates.append(pickNumber)
-	uniqueNumber = pickNumber
-	listOfRandomNumbers.append(uniqueNumber)
-	listOfRandomNumbers.sort()
-	duplicates.sort()
-
-print("----------------My-------Work--------")
-
+	listOfRandomNumbers.append(random.randint(1, 100))
+	
 print(r'[IS 415 only]')
 
-print(f"list of random Numbers:{listOfRandomNumbers}")
+# print(f"list of random Numbers:{listOfRandomNumbers}")
 
-# Testing purposes only
-# listOfRandomNumbers = random_numbers
+listOfRandomNumbers = random_numbers
 
 #multiples
 remainingNumbers = []
@@ -121,6 +111,3 @@ print("Multiples of 2:", multiples_2)
 print("Multiples of 3:", multiples_3)
 print("Multiples of 6:", multiples_6)
 print("Remaining numbers:", remaining)
-
-
-
