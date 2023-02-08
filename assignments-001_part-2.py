@@ -8,7 +8,7 @@ padded dynamically, so that there is always at least 2 spaces between each colum
 example, my output looks like (N=4): 
 
 Joel DeRouchey
-Feburary 7, 2023
+February 7, 2023
 IS 415 UNR
 
 """
@@ -41,7 +41,6 @@ def power_table(n):
                 print(i+1,end = ' ')
             else:
                 print(f'{(i+1)**(j+1):{max_width}}',end='')
-                # print(f'{((i+1)*(j+1))**j}',end = ' ')    # .ljust(max_width + 2), end="")
         print()
     
 
