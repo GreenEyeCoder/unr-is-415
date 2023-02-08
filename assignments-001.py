@@ -8,6 +8,10 @@ Print out all three multiples lists, as well as the list of remaining elements, 
 multiple of any of the three. Output the results in ascending order. Feel free to use the 
 inbuilt sorting functions
 
+Joel DeRouchey Assignment #1 
+IS 415 UNR
+Feburary 7, 2023
+
 """
 
 print(r"My attempt")

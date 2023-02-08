@@ -1,3 +1,19 @@
+"""
+Create a table of powers. The program should calculate the square, cube and fourth power 
+of the numbers from 1 to N, where N is provided on the command line as an input 
+argument. Your code should check that the input argument has been provided, and ensure 
+that it is an integer greater than or equal to 1. You don’t need to deal with the possibility 
+of the input not being an integer (text for example). Make sure that your output table is 
+padded dynamically, so that there is always at least 2 spaces between each column. For 
+example, my output looks like (N=4): 
+
+Joel DeRouchey
+Feburary 7, 2023
+IS 415 UNR
+
+"""
+
+
 import sys
 
 def power_table(n):
