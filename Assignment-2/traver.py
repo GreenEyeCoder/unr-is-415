@@ -2,10 +2,11 @@
 import random
 import csv
 
-
 ROAD_FILE = 'road.csv'
+HEALTH_FILE = 'health.csv'
 
-road = ['X','|','|','|','|','|','|','|','|','|','|']
+
+road = ['X','|','|','|','|','|','|','|','|','|']
 
 def print_roadMap(road):
     for i in range(len(road)):
@@ -15,10 +16,9 @@ with open(ROAD_FILE, 'w', encoding='UTF8', newline='') as f:
      writer = csv.writer(f)
      writer.writerow(road)
 
-
-
-
-HEALTH_FILE = 'health.csv'
+with open(HEALTH_FILE,'w',encoding='UTF8',newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(100)
 
 def read_road():
     with open(ROAD_FILE, 'r') as file:
@@ -45,13 +45,13 @@ def roll_dice():
     outcome = random.randint(1, 6)
     steps = 0 
     damage = 0
+    d10 = None
     if outcome == 1:
         damage = -10
     elif outcome == 2:
         steps = -1
     elif outcome == 3:
         d10 = random.randint(1, 10)
-        print(f'On a 10 sided dice you rolled  a {d10}')
         if d10 == 7:
             steps = 10
     elif outcome == 4:
@@ -60,7 +60,7 @@ def roll_dice():
         print("Do nothing")
     elif outcome == 6:
         steps = 1
-    return ((steps,damage,outcome))
+    return ((steps,damage,outcome,d10))
 
 def consume_potion(health):
     health = min(health + 70, 100)
@@ -85,13 +85,11 @@ def menu(item):
     menu.append('6. Take a step forward')
     return(menu[item])
 
- 
- 
-
 def play_game():
     road = read_road()
     position = road.index('X') + 1
     health = read_health()
+    tenSidedDice = None
     print('\n')
     print_roadMap(road)
     print('\n')
@@ -110,15 +108,21 @@ def play_game():
                 write_health(health)
                 print(f"You consume a potion and restore your health to {health}.")
         elif user_input == 'r':
-            steps, damage, outcome = roll_dice()
+            steps, damage, outcome, tenSidedDice = roll_dice()
             print(f'You rolled a {outcome}')
             print(f'{menu(outcome)}')
+            if tenSidedDice != None:
+                print(f'On a ten sided dice your rolled a {tenSidedDice}')
             health += damage
             position = move_player(position, steps)
-            road[position-1] = '|'
-            road[position] = 'X'
-            if position != 10:
-                road[position+1]= '|'
+            for i in range(len(road)):
+                if i+1 == position:
+                    road[i] = 'X'
+                else:
+                    road[i] = '|'
+        
+
+
             write_road(road)
             print_status(position, health)
             print_roadMap(road)
