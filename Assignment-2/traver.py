@@ -1,47 +1,70 @@
+'''Uses with Linux systems'''
+'''Assignment #2'''
 #!/usr/bin/env python
+
 import random
 import csv
 
+'''Files needed for game'''
 ROAD_FILE = 'road.csv'
 HEALTH_FILE = 'health.csv'
 
-
+'''Actual Road'''
 road = ['X','|','|','|','|','|','|','|','|','|']
 
+
 def print_roadMap(road):
+    '''Print road map'''
+
     for i in range(len(road)):
         print(road[i],end=" ")
 
 with open(ROAD_FILE, 'w', encoding='UTF8', newline='') as f:
-     writer = csv.writer(f)
-     writer.writerow(road)
+    '''New Game Road Record'''
+
+    writer = csv.writer(f)
+    writer.writerow(road)
 
 with open(HEALTH_FILE,'w',encoding='UTF8',newline='') as f:
+    '''New Game Health Status'''
+
     writer = csv.writer(f)
     writer.writerow(100)
 
 def read_road():
+    '''Read file to determine game status'''
+
     with open(ROAD_FILE, 'r') as file:
         reader = csv.reader(file)
         return next(reader)
 
 def write_road(road):
+    '''Record Road map'''
+
     with open(ROAD_FILE, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(road)
 
 def read_health():
+    '''Determine health'''
+
     with open(HEALTH_FILE, 'r') as file:
         return int(file.read())
 
 def write_health(health):
+    '''Write to disk on Health status'''
+
     with open(HEALTH_FILE, 'w') as file:
         file.write(str(health))
 
 def print_status(position, health):
+    '''Status Update'''
+
     print(f"Current position: {position}, Health: {health}")
 
 def roll_dice():
+    '''Roll the dices D6 & D10'''
+
     outcome = random.randint(1, 6)
     steps = 0 
     damage = 0
@@ -63,10 +86,14 @@ def roll_dice():
     return ((steps,damage,outcome,d10))
 
 def consume_potion(health):
+    '''Stay in the game longer'''
+
     health = min(health + 70, 100)
     return health
 
 def move_player(position, steps):
+    '''Determine where on the board you are'''
+
     new_pos = position + steps
     if new_pos < 1:
         new_pos = 1
@@ -75,6 +102,8 @@ def move_player(position, steps):
     return new_pos
 
 def menu(item):
+    '''Actions to take on dice roll'''
+
     item -= 1
     menu = []
     menu.append('1. Take 10 damage')
@@ -86,6 +115,8 @@ def menu(item):
     return(menu[item])
 
 def play_game():
+    '''Starting the game program'''
+
     road = read_road()
     position = road.index('X') + 1
     health = read_health()
