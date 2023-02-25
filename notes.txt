@@ -1,1 +1,0 @@
-https://stackoverflow.com/questions/8651361/how-do-you-print-superscript-in-python is a good reference to find for superscripting.  
