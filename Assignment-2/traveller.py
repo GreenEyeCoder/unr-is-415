@@ -124,7 +124,6 @@ def playGame():
 
     print("Enter 'r' to roll the dice, 'p' to consume potion, or 'q' to quit: ")
     user_input = None # initizing variable in local function scope
-    exampleGameIndex = 0
     road = read_road()
     position = 1
     health = read_health()
