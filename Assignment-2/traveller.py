@@ -5,11 +5,6 @@
 import random
 import csv
 
-'''Example Game variable'''
-
-# exampleGame = [1,1,5,6,3,2,1,5,1,4,'p',6,6,5,5,3,6,1,6]
-
-
 
 '''Files needed for game'''
 ROAD_FILE = 'road.csv'
@@ -18,6 +13,8 @@ HEALTH_FILE = 'health.csv'
 '''Actual Road'''
 road = ['X','|','|','|','|','|','|','|','|','|']
 
+
+'''Violation of rule of storing variable '''
 
 def print_roadMap(road):
     '''Print road map'''
