@@ -1,6 +1,4 @@
-'''Uses with Linux systems'''
 '''Assignment #2'''
-#!/usr/bin/env python
 
 import random
 import csv
@@ -10,15 +8,10 @@ import csv
 ROAD_FILE = 'road.csv'
 HEALTH_FILE = 'health.csv'
 
-'''Actual Road'''
-road = ['X','|','|','|','|','|','|','|','|','|']
-
-
-'''Violation of rule of storing variable '''
-
 def print_roadMap(road):
     '''Print road map'''
 
+    read_road()
     for i in range(len(road)):
         print(road[i], end=" ")
     print()
@@ -26,11 +19,13 @@ def print_roadMap(road):
 with open(ROAD_FILE, 'w', encoding='UTF8', newline='') as f:
     '''New Game Road Record'''
 
+    road = ['X','|','|','|','|','|','|','|','|','|']
     writer = csv.writer(f)
     writer.writerow(road)
 
 with open(HEALTH_FILE,'w',encoding='UTF8',newline='') as f:
     '''New Game Health Status'''
+
     health = [100]
     writer = csv.writer(f)
     writer.writerow(health)
@@ -77,7 +72,6 @@ def rollDice():
     '''random stuff happening here'''    
     
     outcome = random.randint(1, 6)
-
     steps = 0 
     damage = 0
     d10 = None
@@ -97,8 +91,6 @@ def rollDice():
         steps = 1
 
     return ((steps,damage,outcome,d10))
-
-
 
 def consumePotion(health):
     '''Stay in the game longer'''
