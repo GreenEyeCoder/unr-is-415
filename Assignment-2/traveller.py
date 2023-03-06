@@ -7,6 +7,9 @@ import csv
 '''Files needed for game'''
 ROAD_FILE = 'road.csv'
 HEALTH_FILE = 'health.csv'
+gameMessage = 'gameMessage.csv'
+
+gameMessage = "Enter 'r' to roll the dice, 'p' to consume potion, or 'q' to quit:"
 
 def print_roadMap(road):
     '''Print road map'''
@@ -108,10 +111,17 @@ def movePlayer(position, steps):
         newPos = 10
     return newPos
 
+def gameMessage():
+    '''Prints the instructions for the user'''
+    
+    print("Please select 'r' for roll the dice, 'p' for consume potion, and 'q' to quit.")
+    
+    
+
 def playGame():
     '''Try to recreate the example'''
 
-    print("Enter 'r' to roll the dice, 'p' to consume potion, or 'q' to quit: ")
+    gameMessage()
     user_input = None # initizing variable in local function scope
     road = read_road()
     position = 1
@@ -162,6 +172,9 @@ def playGame():
             print_status(damage, health, steps)
             print_roadMap(road)
             print('\n'*2)
+        else:
+            gameMessage()
+            
 
 '''Do you want to play a game? (In creepy computer generated voice)'''          
 playGame()
